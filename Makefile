@@ -878,6 +878,12 @@ format_code_generator:
 	./script/maintenance/black.sh ./addons/TechnoLibre_odoo-code-generator/
 	./script/maintenance/prettier_xml.sh ./addons/TechnoLibre_odoo-code-generator/
 
+.PHONY: format_larpem
+format_larpem:
+	.venv/bin/isort --profile black -l 79 ./addons/larpem_erplibre_larpem_addons/
+	./script/maintenance/black.sh ./addons/larpem_erplibre_larpem_addons/
+	./script/maintenance/prettier_xml.sh ./addons/larpem_erplibre_larpem_addons/
+
 .PHONY: format_erplibre_addons
 format_erplibre_addons:
 	.venv/bin/isort --profile black -l 79 ./addons/ERPLibre_erplibre_addons/
@@ -1002,6 +1008,43 @@ docker_build_release_beta:
 .PHONY: docker_clean_all
 docker_clean_all:
 	docker system prune -a --volumes
+
+########################
+# LARP'EM installation #
+########################
+.PHONY: larpem_install
+larpem_install:
+	#./script/database/db_restore.py --database larpem --image erplibre_website_crm
+	./script/database/db_restore.py --database larpem --image erplibre_ecommerce_project
+	./script/addons/install_addons.sh larpem larpem
+
+.PHONY: larpem_upgrade_test
+larpem_upgrade_test:
+	./script/database/db_restore.py --database larpem --image larpem
+	./script/addons/install_addons.sh larpem larpem
+	./script/addons/install_addons_dev.sh larpem disable_auto_backup,dev_delete_contact_mail,disable_mail_server,user_test
+
+.PHONY: larpem_migration_install
+larpem_migration_install:
+	#./script/database/db_restore.py --database larpem --image erplibre_website_crm
+	./script/database/db_restore.py --database larpem --image erplibre_ecommerce_project
+	./script/addons/install_addons.sh larpem larpem,migrator_larpem_admin,larpem_traitrelame_data,smile_website_login_as
+	./script/addons/uninstall_addons.sh larpem migrator_larpem_admin,larpem_traitrelame_data
+
+.PHONY: larpem_cg_migrator
+larpem_cg_migrator:
+	./script/database/db_restore.py --database larpem_ucd
+	./script/addons/install_addons_dev.sh larpem_ucd code_generator_migrator_larpem_admin
+
+.PHONY: larpem_new_project
+larpem_new_project:
+	# New project on existing project regenerate it
+	./script/code_generator/new_project.py -m larpem -d addons/larpem_erplibre_larpem_addons -f
+
+.PHONY: larpem_cg
+larpem_cg:
+	./script/database/db_restore.py --database larpem_cg
+	./script/addons/install_addons_dev.sh larpem_cg code_generator_larpem
 
 ##############
 #  Git repo  #

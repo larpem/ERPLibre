@@ -23,13 +23,15 @@
   <remote name="openeducat" fetch="https://github.com/ERPLibre/"/>
   <remote name="pledra" fetch="https://github.com/ERPLibre/"/>
   <remote name="tegin" fetch="https://github.com/ERPLibre/"/>
-  
+  <remote name="larpem" fetch="https://github.com/larpem/"/>
+
   <default remote="ERPLibre" revision="12.0" sync-j="4" sync-c="true"/>
   
   <project name="ERPLibre_image_db.git" path="image_db" remote="ERPLibre" clone-depth="1" groups="base"/>
   <project name="OpenHRMS.git" path="addons/CybroOdoo_OpenHRMS" remote="CybroOdoo" revision="dev_12.0" groups="addons"/>
   <project name="Property-Management_odoo.git" path="addons/kinjal-sorathiya_Property-Management_odoo" remote="kinjal-sorathiya" revision="master" groups="addons"/>
   <project name="QuotationRevision.git" path="addons/MathBenTech_QuotationRevision" remote="MathBenTech" groups="addons"/>
+  <project name="erplibre_larpem_addons.git" path="addons/larpem_erplibre_larpem_addons" remote="larpem" groups="addons,base"/>
   <project name="access-addons.git" path="addons/itpp-labs_access-addons" remote="itpp-labs" revision="12.0_dev" groups="addons"/>
   <project name="account-analytic.git" path="addons/OCA_account-analytic" remote="OCA" revision="12.0_dev" groups="addons"/>
   <project name="account-budgeting.git" path="addons/OCA_account-budgeting" remote="OCA" groups="addons"/>
@@ -66,7 +68,7 @@
   <project name="development.git" path="addons/MathBenTech_development" remote="MathBenTech" groups="addons,base"/>
   <project name="documentation-user.git" path="doc/odoo_documentation-user" remote="odoo" groups="odoo"/>
   <project name="donation.git" path="addons/OCA_donation" remote="OCA" revision="12.0_module_donation_website" groups="addons"/>
-  <project name="e-commerce.git" path="addons/OCA_e-commerce" remote="OCA" groups="addons"/>
+  <project name="e-commerce.git" path="addons/OCA_e-commerce" remote="OCA" groups="addons,base"/>
   <project name="edi.git" path="addons/OCA_edi" remote="OCA" groups="addons"/>
   <project name="erplibre-3D-printing-addons.git" path="addons/ERPLibre_erplibre-3D-printing-addons" remote="ERPLibre" groups="addons"/>
   <project name="erplibre-family-management.git" path="addons/MathBenTech_erplibre-family-management" remote="MathBenTech" groups="addons,code_generator"/>
@@ -89,14 +91,14 @@
   <project name="medical-fhir.git" path="addons/tegin_medical-fhir" remote="tegin" groups="addons"/>
   <project name="mis-builder.git" path="addons/OCA_mis-builder" remote="OCA" groups="addons"/>
   <project name="muk_base.git" path="addons/muk-it_muk_base" remote="muk-it" revision="12.0_dev" groups="addons,base"/>
-  <project name="muk_dms.git" path="addons/muk-it_muk_dms" remote="muk-it" groups="addons"/>
+  <project name="muk_dms.git" path="addons/muk-it_muk_dms" remote="muk-it" groups="addons,code_generator"/>
   <project name="muk_docs.git" path="addons/muk-it_muk_docs" remote="muk-it" groups="addons"/>
   <project name="muk_misc.git" path="addons/muk-it_muk_misc" remote="muk-it" revision="12.0_dev" groups="addons,base"/>
   <project name="muk_quality.git" path="addons/muk-it_muk_quality" remote="muk-it" groups="addons"/>
   <project name="muk_web.git" path="addons/muk-it_muk_web" remote="muk-it" revision="12.0_dev" groups="addons,base,code_generator"/>
   <project name="muk_website.git" path="addons/muk-it_muk_website" remote="muk-it" revision="12.0_remove_autoinstall" groups="addons,base"/>
   <project name="multi-company.git" path="addons/OCA_multi-company" remote="OCA" groups="addons"/>
-  <project name="odoo-addons.git" path="addons/ajepe_odoo-addons" remote="ajepe" revision="12.0_dev" groups="addons,base"/>
+  <project name="odoo-addons.git" path="addons/ajepe_odoo-addons" remote="ajepe" revision="12.0_dev" groups="addons,base,code_generator"/>
   <project name="odoo-base-addons.git" path="addons/Numigi_odoo-base-addons" remote="Numigi" revision="12.0_dev" groups="addons"/>
   <project name="odoo-business-spending-management-quebec-canada.git" path="addons/MathBenTech_odoo-business-spending-management-quebec-canada" remote="MathBenTech" groups="addons,base"/>
   <project name="odoo-cloud-platform.git" path="addons/camptocamp_odoo-cloud-platform" remote="camptocamp" revision="12.0_dev" groups="addons"/>
@@ -120,7 +122,7 @@
   <project name="odoo-timesheet-addons.git" path="addons/Numigi_odoo-timesheet-addons" remote="Numigi" revision="12.0_dev" groups="addons"/>
   <project name="odoo-web-addons.git" path="addons/Numigi_odoo-web-addons" remote="Numigi" groups="addons,base"/>
   <project name="odoo.git" path="odoo" remote="odoo" revision="ERPLibre/12.0" clone-depth="10" groups="odoo,base"/>
-  <project name="odoo_addons.git" path="addons/Smile-SA_odoo_addons" remote="Smile-SA" revision="12.0_remote_autoinstall" groups="addons"/>
+  <project name="odoo_addons.git" path="addons/Smile-SA_odoo_addons" remote="Smile-SA" revision="12.0_remote_autoinstall" groups="addons,base"/>
   <project name="odoo_dhtmlxgantt.git" path="addons/obayit_odoo_dhtmlxgantt" remote="obayit" groups="addons"/>
   <project name="odooapps.git" path="addons/odoomates_odooapps" remote="odoomates" groups="addons"/>
   <project name="odooplm.git" path="addons/OmniaGit_odooplm" remote="OmniaGit" groups="addons"/>
